@@ -1,4 +1,5 @@
 import Hero from "../components/Hero";
+import LatestRepors from "../components/LatestRepors";
 import Search from "../components/Search";
 
 const HomePage = () => {
@@ -6,6 +7,7 @@ const HomePage = () => {
 		<>
 			<Hero />
 			<Search />
+			<LatestRepors />
 		</>
 	);
 };
