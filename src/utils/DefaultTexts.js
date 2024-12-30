@@ -5,4 +5,6 @@ export const routes = {
 	postReport: "/post-reports",
 	dashboard: "/dashboard",
 	reportDetails: "/reports/",
+	login: "/login",
+	register: "/register",
 };
