@@ -8,7 +8,7 @@ const Hero = () => {
 			<>
 				<header className="relative h-[75vh] bg-[url('https://images.pexels.com/photos/255379/pexels-photo-255379.jpeg?cs=srgb&dl=pexels-padrinan-255379.jpg&fm=jpg')]">
 					<div className="block w-full h-full absolute top-0 left-0 bg-black bg-opacity-80 z-[0]"></div>
-					<div className="relative max-w-7x h-full z-10 mx-auto px-4 sm:px-6 lg:px-8 py-24 space-y-8 flex flex-col justify-center">
+					<div className="relative max-w-7x h-full z-[1] mx-auto px-4 sm:px-6 lg:px-8 py-24 space-y-8 flex flex-col justify-center">
 						<div className="max-w-4xl text-center mx-auto">
 							<h1 className="block font-medium text-gray-200 text-4xl sm:text-5xl md:text-6xl lg:text-7xl">
 								Let’s Reunite People with Their Belongings!

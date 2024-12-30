@@ -41,17 +41,13 @@ const ReportCard = () => {
 									</Tooltip.Root>
 								</Tooltip.Provider>
 
-								<div className="hs-dropdown [--strategy:absolute] [--placement:bottom-right] relative inline-flex">
+								<div className="  [--strategy:absolute] [--placement:bottom-right] relative inline-flex">
 									{/* More Dropdown */}
 									<DropdownMenu.Root>
 										<DropdownMenu.Trigger asChild>
 											<button
-												id="hs-pro-wccmdid2"
 												type="button"
-												className="flex justify-center items-center gap-x-3 size-7 text-sm border border-gray-200 text-gray-600 hover:bg-gray-100 rounded-full disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:bg-gray-100 dark:border-neutral-700 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 dark:hover:text-neutral-200 dark:focus:text-neutral-200"
-												aria-haspopup="menu"
-												aria-expanded="false"
-												aria-label="Dropdown">
+												className="flex justify-center items-center gap-x-3 size-7 text-sm border border-gray-200 text-gray-600 hover:bg-gray-100 rounded-full disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:bg-gray-100 dark:border-neutral-700 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 dark:hover:text-neutral-200 dark:focus:text-neutral-200">
 												<svg
 													className="shrink-0 size-3"
 													xmlns="http://www.w3.org/2000/svg"

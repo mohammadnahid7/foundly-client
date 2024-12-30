@@ -18,8 +18,8 @@ const Process = () => {
 									{/* Icon */}
 									<div className="relative group-last:after:hidden after:absolute after:top-8 after:bottom-2 after:start-3 after:w-px after:-translate-x-[0.5px] after:bg-gray-200 dark:after:bg-neutral-700">
 										<div className="relative z-10 size-6 flex justify-center items-center">
-											<span className="size-7 flex justify-center items-center shrink-0 bg-gray-100 font-medium text-gray-800 rounded-full group-focus:bg-gray-200 hs-stepper-active:bg-blue-600 hs-stepper-active:text-white hs-stepper-success:bg-blue-600 hs-stepper-success:text-white hs-stepper-completed:bg-teal-500 hs-stepper-completed:group-focus:bg-teal-600 dark:bg-neutral-700 dark:text-white dark:group-focus:bg-gray-600 dark:hs-stepper-active:bg-blue-500 dark:hs-stepper-success:bg-blue-500 dark:hs-stepper-completed:bg-teal-500 dark:hs-stepper-completed:group-focus:bg-teal-600">
-												<span className="hs-stepper-success:hidden hs-stepper-completed:hidden">1</span>
+											<span className="size-7 flex justify-center items-center shrink-0 bg-gray-100 font-medium text-gray-800 rounded-full group-focus:bg-gray-200       dark:bg-neutral-700 dark:text-white dark:group-focus:bg-gray-600 dark: dark: dark: dark:">
+												<span className=" ">1</span>
 											</span>
 										</div>
 									</div>
@@ -46,8 +46,8 @@ const Process = () => {
 									{/* Icon */}
 									<div className="relative group-last:after:hidden after:absolute after:top-8 after:bottom-2 after:start-3 after:w-px after:-translate-x-[0.5px] after:bg-gray-200 dark:after:bg-neutral-700">
 										<div className="relative z-10 size-6 flex justify-center items-center">
-											<span className="size-7 flex justify-center items-center shrink-0 bg-gray-100 font-medium text-gray-800 rounded-full group-focus:bg-gray-200 hs-stepper-active:bg-blue-600 hs-stepper-active:text-white hs-stepper-success:bg-blue-600 hs-stepper-success:text-white hs-stepper-completed:bg-teal-500 hs-stepper-completed:group-focus:bg-teal-600 dark:bg-neutral-700 dark:text-white dark:group-focus:bg-gray-600 dark:hs-stepper-active:bg-blue-500 dark:hs-stepper-success:bg-blue-500 dark:hs-stepper-completed:bg-teal-500 dark:hs-stepper-completed:group-focus:bg-teal-600">
-												<span className="hs-stepper-success:hidden hs-stepper-completed:hidden">2</span>
+											<span className="size-7 flex justify-center items-center shrink-0 bg-gray-100 font-medium text-gray-800 rounded-full group-focus:bg-gray-200       dark:bg-neutral-700 dark:text-white dark:group-focus:bg-gray-600 dark: dark: dark: dark:">
+												<span className=" ">2</span>
 											</span>
 										</div>
 									</div>
@@ -76,8 +76,8 @@ const Process = () => {
 									{/* Icon */}
 									<div className="relative group-last:after:hidden after:absolute after:top-8 after:bottom-2 after:start-3 after:w-px after:-translate-x-[0.5px] after:bg-gray-200 dark:after:bg-neutral-700">
 										<div className="relative z-10 size-6 flex justify-center items-center">
-											<span className="size-7 flex justify-center items-center shrink-0 bg-gray-100 font-medium text-gray-800 rounded-full group-focus:bg-gray-200 hs-stepper-active:bg-blue-600 hs-stepper-active:text-white hs-stepper-success:bg-blue-600 hs-stepper-success:text-white hs-stepper-completed:bg-teal-500 hs-stepper-completed:group-focus:bg-teal-600 dark:bg-neutral-700 dark:text-white dark:group-focus:bg-gray-600 dark:hs-stepper-active:bg-blue-500 dark:hs-stepper-success:bg-blue-500 dark:hs-stepper-completed:bg-teal-500 dark:hs-stepper-completed:group-focus:bg-teal-600">
-												<span className="hs-stepper-success:hidden hs-stepper-completed:hidden">3</span>
+											<span className="size-7 flex justify-center items-center shrink-0 bg-gray-100 font-medium text-gray-800 rounded-full group-focus:bg-gray-200       dark:bg-neutral-700 dark:text-white dark:group-focus:bg-gray-600 dark: dark: dark: dark:">
+												<span className=" ">3</span>
 											</span>
 										</div>
 									</div>

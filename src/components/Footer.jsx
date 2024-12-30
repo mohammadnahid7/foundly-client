@@ -9,22 +9,16 @@ const Footer = () => {
 					{/* Grid */}
 					<div className="text-center max-w-7xl mx-auto">
 						<div>
-							<a className="flex-none text-xl font-semibold text-white dark:text-white" href="#" aria-label="Brand">
-								Brand
+							<a className="flex-none text-xl font-semibold text-white dark:text-white" href="#">
+								Foundly
 							</a>
 						</div>
 						{/* End Col */}
 						<div className="mt-3">
+							<p className="text-gray-400 dark:text-neutral-500 font-semibold">Stay Connected</p>
 							<p className="text-gray-500 dark:text-neutral-500">
-								We're part of the{" "}
-								<a
-									className="text-blue-600 decoration-2 hover:underline focus:outline-none focus:underline font-medium dark:text-blue-500"
-									href="#">
-									Htmlstream
-								</a>{" "}
-								family.
+								Join us in reuniting lost items with their owners. Every little effort makes a big difference!
 							</p>
-							<p className="text-gray-500 dark:text-neutral-500">© 2024 Preline Labs.</p>
 						</div>
 						{/* Social Brands */}
 						<div className="mt-3 space-x-2">
