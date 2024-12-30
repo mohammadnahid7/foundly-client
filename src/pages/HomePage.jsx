@@ -1,3 +1,4 @@
+import Footer from "../components/Footer";
 import Hero from "../components/Hero";
 import LatestRepors from "../components/LatestRepors";
 import Process from "../components/Process";
@@ -10,6 +11,7 @@ const HomePage = () => {
 			<Search />
 			<LatestRepors />
 			<Process />
+			<Footer />
 		</>
 	);
 };

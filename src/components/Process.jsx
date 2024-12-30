@@ -20,19 +20,6 @@ const Process = () => {
 										<div className="relative z-10 size-6 flex justify-center items-center">
 											<span className="size-7 flex justify-center items-center shrink-0 bg-gray-100 font-medium text-gray-800 rounded-full group-focus:bg-gray-200 hs-stepper-active:bg-blue-600 hs-stepper-active:text-white hs-stepper-success:bg-blue-600 hs-stepper-success:text-white hs-stepper-completed:bg-teal-500 hs-stepper-completed:group-focus:bg-teal-600 dark:bg-neutral-700 dark:text-white dark:group-focus:bg-gray-600 dark:hs-stepper-active:bg-blue-500 dark:hs-stepper-success:bg-blue-500 dark:hs-stepper-completed:bg-teal-500 dark:hs-stepper-completed:group-focus:bg-teal-600">
 												<span className="hs-stepper-success:hidden hs-stepper-completed:hidden">1</span>
-												<svg
-													className="hidden shrink-0 size-3 hs-stepper-success:block"
-													xmlns="http://www.w3.org/2000/svg"
-													width="24"
-													height="24"
-													viewBox="0 0 24 24"
-													fill="none"
-													stroke="currentColor"
-													strokeWidth="3"
-													strokeLinecap="round"
-													strokeLinejoin="round">
-													<polyline points="20 6 9 17 4 12"></polyline>
-												</svg>
 											</span>
 										</div>
 									</div>
@@ -61,19 +48,6 @@ const Process = () => {
 										<div className="relative z-10 size-6 flex justify-center items-center">
 											<span className="size-7 flex justify-center items-center shrink-0 bg-gray-100 font-medium text-gray-800 rounded-full group-focus:bg-gray-200 hs-stepper-active:bg-blue-600 hs-stepper-active:text-white hs-stepper-success:bg-blue-600 hs-stepper-success:text-white hs-stepper-completed:bg-teal-500 hs-stepper-completed:group-focus:bg-teal-600 dark:bg-neutral-700 dark:text-white dark:group-focus:bg-gray-600 dark:hs-stepper-active:bg-blue-500 dark:hs-stepper-success:bg-blue-500 dark:hs-stepper-completed:bg-teal-500 dark:hs-stepper-completed:group-focus:bg-teal-600">
 												<span className="hs-stepper-success:hidden hs-stepper-completed:hidden">2</span>
-												<svg
-													className="hidden shrink-0 size-3 hs-stepper-success:block"
-													xmlns="http://www.w3.org/2000/svg"
-													width="24"
-													height="24"
-													viewBox="0 0 24 24"
-													fill="none"
-													stroke="currentColor"
-													strokeWidth="3"
-													strokeLinecap="round"
-													strokeLinejoin="round">
-													<polyline points="20 6 9 17 4 12"></polyline>
-												</svg>
 											</span>
 										</div>
 									</div>
@@ -104,19 +78,6 @@ const Process = () => {
 										<div className="relative z-10 size-6 flex justify-center items-center">
 											<span className="size-7 flex justify-center items-center shrink-0 bg-gray-100 font-medium text-gray-800 rounded-full group-focus:bg-gray-200 hs-stepper-active:bg-blue-600 hs-stepper-active:text-white hs-stepper-success:bg-blue-600 hs-stepper-success:text-white hs-stepper-completed:bg-teal-500 hs-stepper-completed:group-focus:bg-teal-600 dark:bg-neutral-700 dark:text-white dark:group-focus:bg-gray-600 dark:hs-stepper-active:bg-blue-500 dark:hs-stepper-success:bg-blue-500 dark:hs-stepper-completed:bg-teal-500 dark:hs-stepper-completed:group-focus:bg-teal-600">
 												<span className="hs-stepper-success:hidden hs-stepper-completed:hidden">3</span>
-												<svg
-													className="hidden shrink-0 size-3 hs-stepper-success:block"
-													xmlns="http://www.w3.org/2000/svg"
-													width="24"
-													height="24"
-													viewBox="0 0 24 24"
-													fill="none"
-													stroke="currentColor"
-													strokeWidth="3"
-													strokeLinecap="round"
-													strokeLinejoin="round">
-													<polyline points="20 6 9 17 4 12"></polyline>
-												</svg>
 											</span>
 										</div>
 									</div>
