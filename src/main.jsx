@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ReportsViewProvider from "./contexts/ReportsViewProvider.jsx";
 import "./index.css";
 import ErrorPage from "./pages/ErrorPage.jsx";
+import FoundReportsPage from "./pages/FoundReportsPage.jsx";
 import HomePage from "./pages/HomePage.jsx";
 import LostReportsPage from "./pages/LostReportsPage.jsx";
 import { routes } from "./utils/DefaultTexts.js";
@@ -16,6 +17,10 @@ const allRoutes = createBrowserRouter([
 	{
 		path: routes.lostReports,
 		element: <LostReportsPage />,
+	},
+	{
+		path: routes.foundReports,
+		element: <FoundReportsPage />,
 	},
 	{
 		path: "*",

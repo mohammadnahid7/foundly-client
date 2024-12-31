@@ -13,9 +13,9 @@ const ReportCard = () => {
 	return (
 		<>
 			<div
-				className={`${isListMode ? "flex-row max-w-4xl place-self-center w-full" : "flex-col"} flex bg-white border shadow-md border-gray-200 rounded-xl dark:bg-neutral-800 dark:border-neutral-700`}>
+				className={`${isListMode ? "flex-row max-w-4xl place-self-start md:place-self-center w-full min-w-[620px]" : "flex-col"} flex bg-white border shadow-md border-gray-200 rounded-xl dark:bg-neutral-800 dark:border-neutral-700`}>
 				<div
-					className={`${isListMode ? "w-40 rounded-l-xl" : "rounded-t-xl h-60"} shrink-0 bg-pink-200 dark:bg-pink-800`}
+					className={`${isListMode ? "w-32 md:w-40 rounded-l-xl" : "rounded-t-xl h-60"} shrink-0 bg-pink-200 dark:bg-pink-800`}
 				/>
 				{/* Body */}
 				<div className={`${isListMode ? "flex-col items-left flex-1" : "flex-col"} p-4 h-full text-left flex`}>
@@ -23,11 +23,7 @@ const ReportCard = () => {
 						<h2 className={`${isListMode || "mb-2"} font-medium text-gray-800 dark:text-neutral-300`}>
 							Daniel Hobbs
 						</h2>
-						<p className="text-sm">
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis consectetur iste quo, nobis, nam ipsam
-							cum ipsum in, amet praesentium laudantium! Porro possimus architecto, illo libero adipisci est iste
-							sunt.
-						</p>
+						<p className="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 					</div>
 					{/* List */}
 					<dl
