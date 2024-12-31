@@ -1,5 +1,5 @@
 import * as Toggle from "@radix-ui/react-toggle";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { PiListDashesBold, PiMagnifyingGlassBold, PiSquaresFour } from "react-icons/pi";
 import ReportGrid from "../components/ReportGrid";
 import { ReportsViewContext } from "../contexts/ReportsViewProvider";

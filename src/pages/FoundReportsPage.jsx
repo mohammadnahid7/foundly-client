@@ -1,7 +1,6 @@
 import * as Toggle from "@radix-ui/react-toggle";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { PiListDashesBold, PiMagnifyingGlassBold, PiSquaresFour } from "react-icons/pi";
-import ReportCardSkeleton from "../components/common/ReportCardSkeleton";
 import ReportGrid from "../components/ReportGrid";
 import { ReportsViewContext } from "../contexts/ReportsViewProvider";
 import { defaultTexts } from "../utils/DefaultTexts";
@@ -91,6 +90,7 @@ const FoundReportsPage = () => {
 								{/* End Button Group */}
 							</div>
 						</div>
+
 						<ReportGrid className="mt-16" />
 					</div>
 				</div>

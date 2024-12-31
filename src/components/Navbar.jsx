@@ -1,9 +1,10 @@
 import * as Avatar from "@radix-ui/react-avatar";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
-import { Link } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { defaultTexts, routes } from "../utils/DefaultTexts";
 
 const Navbar = () => {
+	const { pathname } = useLocation();
 	return (
 		<>
 			<header className="fixed left-0 top-0 flex flex-wrap  md:justify-start md:flex-nowrap z-50 w-full bg-white border-b border-gray-200 dark:bg-neutral-800 dark:border-neutral-700">
@@ -36,39 +37,39 @@ const Navbar = () => {
 									sideOffset={5}
 									align="end">
 									<DropdownMenu.Item>
-										<Link
-											className="p-2 flex justify-center items-center text-center text-sm text-gray-800 hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100 dark:bg-neutral-700 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 hover:border-none"
+										<NavLink
+											className={`${pathname == routes.home && "bg-gray-100 border-2 border-gray-200"} justify-center p-2 flex items-center text-sm text-gray-800 hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100 dark:bg-neutral-700 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700`}
 											to={routes.home}>
 											Home
-										</Link>
+										</NavLink>
 									</DropdownMenu.Item>
 									<DropdownMenu.Item>
-										<Link
-											className="p-2 flex justify-center items-center text-center text-sm text-gray-800 hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100 dark:bg-neutral-700 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700"
+										<NavLink
+											className={`${pathname == routes.lostReports && "bg-gray-100 border-2 border-gray-200"} justify-center p-2 flex items-center text-sm text-gray-800 hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100 dark:bg-neutral-700 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700`}
 											to={routes.lostReports}>
 											Lost Reports
-										</Link>
+										</NavLink>
 									</DropdownMenu.Item>
 									<DropdownMenu.Item>
-										<Link
-											className="p-2 flex justify-center items-center text-center text-sm text-gray-800 hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100 dark:bg-neutral-700 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700"
+										<NavLink
+											className={`${pathname == routes.foundReports && "bg-gray-100 border-2 border-gray-200"} justify-center p-2 flex items-center text-sm text-gray-800 hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100 dark:bg-neutral-700 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700`}
 											to={routes.foundReports}>
 											Found Reports
-										</Link>
+										</NavLink>
 									</DropdownMenu.Item>
 									<DropdownMenu.Item>
-										<Link
-											className="p-2 flex justify-center items-center text-center text-sm text-gray-800 hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100 dark:bg-neutral-700 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700"
+										<NavLink
+											className={`${pathname == routes.dashboard && "bg-gray-100 border-2 border-gray-200"} justify-center p-2 flex items-center text-sm text-gray-800 hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100 dark:bg-neutral-700 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700`}
 											to={routes.dashboard}>
 											Dashboard
-										</Link>
+										</NavLink>
 									</DropdownMenu.Item>
 									<DropdownMenu.Item>
-										<Link
-											className="p-2 flex justify-center items-center text-center text-sm text-gray-800 hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100 dark:bg-neutral-700 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700"
+										<NavLink
+											className={`${pathname == routes.postReport && "bg-gray-100 border-2 border-gray-200"} justify-center p-2 flex items-center text-sm text-gray-800 hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100 dark:bg-neutral-700 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700`}
 											to={routes.postReport}>
 											Post Report
-										</Link>
+										</NavLink>
 									</DropdownMenu.Item>
 									<DropdownMenu.Item>
 										<button className="p-2 w-full flex justify-center items-center text-center text-sm text-gray-800 hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100 dark:bg-neutral-700 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700">
@@ -86,21 +87,21 @@ const Navbar = () => {
 							<div className="py-2 md:py-0  flex flex-col md:flex-row md:items-center gap-0.5 md:gap-1">
 								<div className="grow">
 									<div className="flex flex-col md:flex-row md:justify-end md:items-center gap-0.5 md:gap-1">
-										<Link
-											className="p-2 flex items-center text-sm bg-gray-100 text-gray-800 hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100 dark:bg-neutral-700 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700"
+										<NavLink
+											className={`${pathname == routes.home && "bg-gray-100 border-2 border-gray-200"} p-2 flex items-center text-sm text-gray-800 hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100 dark:bg-neutral-700 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700`}
 											to={routes.home}>
 											Home
-										</Link>
-										<Link
-											className="p-2 flex items-center text-sm text-gray-800 hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700"
+										</NavLink>
+										<NavLink
+											className={`${pathname == routes.lostReports && "bg-gray-100 border-2 border-gray-200"} p-2 flex items-center text-sm text-gray-800 hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100 dark:bg-neutral-700 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700`}
 											to={routes.lostReports}>
 											Lost Reports
-										</Link>
-										<Link
-											className="p-2 flex items-center text-sm text-gray-800 hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700"
+										</NavLink>
+										<NavLink
+											className={`${pathname == routes.foundReports && "bg-gray-100 border-2 border-gray-200"} p-2 flex items-center text-sm text-gray-800 hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100 dark:bg-neutral-700 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700`}
 											to={routes.foundReports}>
 											Found Reports
-										</Link>
+										</NavLink>
 									</div>
 								</div>
 								<div className="my-2 md:my-0 md:mx-2">

@@ -5,15 +5,15 @@ import { defaultTexts } from "../utils/DefaultTexts";
 import ReportCard from "./common/ReportCard";
 import ReportCardSkeleton from "./common/ReportCardSkeleton";
 
-const ReportGrid = ({ className = "" }) => {
-	const [documentLoad, setDocumentLoad] = useState(false);
+const ReportGrid = ({ className = "", defaultViewMode }) => {
+	const [documentLoad, setDocumentLoad] = useState(true);
 	const { reportsViewMode } = useContext(ReportsViewContext);
 	const isListMode = reportsViewMode == defaultTexts.reportsListView ? true : false;
 
-	useEffect(() => {
-		const timer = setTimeout(() => setDocumentLoad(true), 55000);
-		return () => clearTimeout(timer);
-	});
+	// useEffect(() => {
+	// 	const timer = setTimeout(() => setDocumentLoad(true), 2000);
+	// 	return () => clearTimeout(timer);
+	// });
 
 	return (
 		<>
