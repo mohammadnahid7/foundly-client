@@ -20,7 +20,7 @@ const ReportGrid = ({ className = "" }) => {
 			<div
 				className={clsx(
 					className,
-					`grid grid-cols-1 ${isListMode ? "overflow-x-scroll" : "md:grid-cols-2 lg:grid-cols-3 "} gap-3 md:gap-6`
+					`grid grid-cols-1 ${isListMode ? "overflow-x-scroll md:overflow-visible" : "md:grid-cols-2 lg:grid-cols-3 "} gap-3 md:gap-6`
 				)}>
 				{documentLoad
 					? [1, 2, 3].map((el, idx) => <ReportCard key={idx} />)
