@@ -12,7 +12,7 @@ const ReportGrid = ({ className = "" }) => {
 
 	return (
 		<>
-			<div className={clsx(className, "grid grid-cols-1 md:grid-cols-3 gap-6")}>
+			<div className={clsx(className, "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-6")}>
 				{documentLoad
 					? [1, 2, 3].map((el, idx) => <ReportCard key={idx} />)
 					: [1, 2, 3].map((el, idx) => <ReportCardSkeleton key={idx} />)}

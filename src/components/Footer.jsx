@@ -1,4 +1,5 @@
 import { PiFacebookLogoBold, PiGoogleLogoBold, PiTwitterLogoBold } from "react-icons/pi";
+import { defaultTexts } from "../utils/DefaultTexts";
 
 const Footer = () => {
 	return (
@@ -10,7 +11,7 @@ const Footer = () => {
 					<div className="text-center max-w-7xl mx-auto">
 						<div>
 							<a className="flex-none text-xl font-semibold text-white dark:text-white" href="#">
-								Foundly
+								{defaultTexts.logo}
 							</a>
 						</div>
 						{/* End Col */}

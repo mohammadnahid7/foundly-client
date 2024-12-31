@@ -1,5 +1,5 @@
 export const routes = {
-	home: "/home",
+	home: "/",
 	lostReports: "/lost-reports",
 	foundReports: "/found-reports",
 	postReport: "/post-reports",
@@ -7,4 +7,11 @@ export const routes = {
 	reportDetails: "/reports/",
 	login: "/login",
 	register: "/register",
+};
+
+export const defaultTexts = {
+	logo: "Foundly",
+	reportsListView: "list",
+	reportsGridView: "grid",
+	reportsViewModeLSKey: "reportsViewMode",
 };

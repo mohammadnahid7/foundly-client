@@ -16,27 +16,25 @@ const Search = () => {
 								select categories, or refine by location to narrow down your search.
 							</p>
 							<div className="mt-7 sm:mt-12 mx-auto max-w-xl relative">
-								<form>
-									<div className="relative z-10 flex gap-x-3 p-3 bg-white border rounded-lg shadow-lg shadow-gray-100 dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-gray-900/20">
-										<div className="w-full">
-											<label className="block text-sm text-gray-700 font-medium dark:text-white">
-												<span className="sr-only">Search by item name, description, or location...</span>
-											</label>
-											<input
-												type="email"
-												className="py-2.5 px-4 block w-full border-transparent rounded-lg focus:border-blue-500 focus:ring-blue-500 dark:bg-neutral-900 dark:border-transparent dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
-												placeholder="Search by item name, description, or location..."
-											/>
-										</div>
-										<div>
-											<button
-												type="button"
-												className="size-[46px] inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">
-												<PiMagnifyingGlassBold className="size-5" />
-											</button>
-										</div>
+								<div className="relative z-10 flex gap-x-3 p-3 bg-white border rounded-lg shadow-lg shadow-gray-100 dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-gray-900/20">
+									<div className="w-full">
+										<label className="block text-sm text-gray-700 font-medium dark:text-white">
+											<span className="sr-only">Search by item name, description, or location...</span>
+										</label>
+										<input
+											type="email"
+											className="py-2.5 px-4 block w-full border-transparent rounded-lg focus:border-blue-500 focus:ring-blue-500 dark:bg-neutral-900 dark:border-transparent dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+											placeholder="Search by item name, description, or location..."
+										/>
 									</div>
-								</form>
+									<div>
+										<button
+											type="button"
+											className="size-[46px] inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">
+											<PiMagnifyingGlassBold className="size-5" />
+										</button>
+									</div>
+								</div>
 							</div>
 
 							{/* Categories */}
