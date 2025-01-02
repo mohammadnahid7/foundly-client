@@ -147,7 +147,7 @@ const ReportCard = () => {
 				{isListMode ? (
 					<div className="flex items-stretch justify-center">
 						<div className="inline-flex flex-col items-stretch justify-stretch h-auto gap-0 bg-whiterounded-lg rounded-l-none dark:bg-neutral-800">
-							<button className="p-2 px-3 bg-blue-50 hover:bg-blue-100 rounded-t-lg rounded-l-none text-blue-700 h-full border border-blue-100">
+							<button className="p-2 px-3 bg-blue-50 hover:bg-blue-100 rounded-t-lg !rounded-l-none text-blue-700 h-full border border-blue-100">
 								<PiPencilSimpleBold />
 							</button>
 							<button className="p-2 px-3 bg-green-50 hover:bg-green-100 rounded-l-none text-green-700 h-full border border-green-100">

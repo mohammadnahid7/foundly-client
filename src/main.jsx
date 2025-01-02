@@ -7,7 +7,10 @@ import "./index.css";
 import ErrorPage from "./pages/ErrorPage.jsx";
 import FoundReportsPage from "./pages/FoundReportsPage.jsx";
 import HomePage from "./pages/HomePage.jsx";
+import LoginPage from "./pages/LoginPage.jsx";
 import LostReportsPage from "./pages/LostReportsPage.jsx";
+import PostReportPage from "./pages/PostReportPage.jsx";
+import RegisterPage from "./pages/RegisterPage.jsx";
 import { routes } from "./utils/DefaultTexts.js";
 
 const allRoutes = createBrowserRouter([
@@ -26,6 +29,18 @@ const allRoutes = createBrowserRouter([
 			{
 				path: routes.foundReports,
 				element: <FoundReportsPage />,
+			},
+			{
+				path: routes.login,
+				element: <LoginPage />,
+			},
+			{
+				path: routes.register,
+				element: <RegisterPage />,
+			},
+			{
+				path: routes.postReport,
+				element: <PostReportPage />,
 			},
 		],
 	},
