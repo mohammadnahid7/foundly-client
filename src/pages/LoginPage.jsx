@@ -1,9 +1,19 @@
+import { useContext } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { PiCaretRightBold, PiEyeBold } from "react-icons/pi";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import AuthContext from "../context/contexts";
 import { routes } from "../utils/DefaultTexts";
 
 const LoginPage = () => {
+	const { googleSignIn, login } = useContext(AuthContext);
+	const navigate = useNavigate();
+
+	const handleFormSubmit = (e) => {
+		e.preventDefault();
+		const form = new FormData(e.target);
+		login(...form.values());
+	};
 	return (
 		<>
 			<div className="grow px-5">
@@ -22,6 +32,7 @@ const LoginPage = () => {
 					<div className="flex flex-col sm:flex-row gap-2">
 						<button
 							type="button"
+							onClick={async () => googleSignIn(navigate)}
 							className="py-2 px-3 w-full inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:bg-gray-50 dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-300 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700">
 							<FcGoogle className="size-5" />
 							Sign in with Google
@@ -31,26 +42,23 @@ const LoginPage = () => {
 					<div className="flex items-center text-xs text-gray-400 uppercase before:flex-1 before:border-t before:border-gray-200 before:me-6 after:flex-1 after:border-t after:border-gray-200 after:ms-6 dark:text-neutral-500 dark:before:border-neutral-700 dark:after:border-neutral-700">
 						Or
 					</div>
-					<form>
+					<form onSubmit={handleFormSubmit}>
 						<div className="space-y-5">
 							<div>
-								<label
-									htmlFor="hs-pro-dale"
-									className="block mb-2 text-sm font-medium text-gray-800 dark:text-white">
+								<label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-800 dark:text-white">
 									Email
 								</label>
 								<input
 									type="email"
-									id="hs-pro-dale"
+									id="email"
+									name="email"
 									className="py-2 px-3 block w-full border border-gray-200 rounded-lg text-sm placeholder:text-gray-400 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-transparent dark:border-neutral-700 dark:text-neutral-300 dark:placeholder:text-white/60 dark:focus:ring-neutral-600"
 									placeholder="you@email.com"
 								/>
 							</div>
 							<div>
 								<div className="flex justify-between items-center mb-2">
-									<label
-										htmlFor="hs-pro-dalp"
-										className="block text-sm font-medium text-gray-800 dark:text-white">
+									<label htmlFor="password" className="block text-sm font-medium text-gray-800 dark:text-white">
 										Password
 									</label>
 									<a className="inline-flex items-center gbe75 text-xs text-gray-600 hover:text-gray-700 decoration-2 hover:underline focus:outline-none focus:underline dark:text-neutral-500 dark:hover:text-neutral-600">
@@ -59,7 +67,8 @@ const LoginPage = () => {
 								</div>
 								<div className="relative">
 									<input
-										id="hs-pro-dalp"
+										id="password"
+										name="password"
 										type="password"
 										className="py-2 px-3 block w-full border border-gray-200 rounded-lg text-sm placeholder:text-gray-400 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-transparent dark:border-neutral-700 dark:text-neutral-300 dark:placeholder:text-white/60 dark:focus:ring-neutral-600"
 										placeholder="********"
@@ -72,7 +81,7 @@ const LoginPage = () => {
 								</div>
 							</div>
 							<button
-								type="button"
+								type="submit"
 								className="py-2 px-3 w-full inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-neutral-600">
 								Sign in
 							</button>

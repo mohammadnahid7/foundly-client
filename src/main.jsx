@@ -2,6 +2,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App.jsx";
+import AuthContextProvider from "./context/AuthContextProvider.jsx";
 import ReportsViewProvider from "./contexts/ReportsViewProvider.jsx";
 import "./index.css";
 import ErrorPage from "./pages/ErrorPage.jsx";
@@ -11,6 +12,7 @@ import LoginPage from "./pages/LoginPage.jsx";
 import LostReportsPage from "./pages/LostReportsPage.jsx";
 import PostReportPage from "./pages/PostReportPage.jsx";
 import RegisterPage from "./pages/RegisterPage.jsx";
+import ReportDetailsPage from "./pages/ReportDetailsPage.jsx";
 import { routes } from "./utils/DefaultTexts.js";
 
 const allRoutes = createBrowserRouter([
@@ -42,6 +44,10 @@ const allRoutes = createBrowserRouter([
 				path: routes.postReport,
 				element: <PostReportPage />,
 			},
+			{
+				path: "details",
+				element: <ReportDetailsPage />,
+			},
 		],
 	},
 	{
@@ -53,7 +59,9 @@ const allRoutes = createBrowserRouter([
 createRoot(document.getElementById("root")).render(
 	<StrictMode>
 		<ReportsViewProvider>
-			<RouterProvider router={allRoutes} />
+			<AuthContextProvider>
+				<RouterProvider router={allRoutes} />
+			</AuthContextProvider>
 		</ReportsViewProvider>
 	</StrictMode>
 );

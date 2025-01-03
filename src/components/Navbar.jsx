@@ -1,11 +1,13 @@
 import * as Avatar from "@radix-ui/react-avatar";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
+import { useContext } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
+import AuthContext from "../context/contexts";
 import { defaultTexts, routes } from "../utils/DefaultTexts";
 
 const Navbar = () => {
 	const { pathname } = useLocation();
-	const isUser = true;
+	const { logout, user } = useContext(AuthContext);
 	return (
 		<>
 			<header className="fixed left-0 top-0 flex flex-wrap  md:justify-start md:flex-nowrap z-50 w-full bg-white border-b border-gray-200 dark:bg-neutral-800 dark:border-neutral-700">
@@ -42,14 +44,14 @@ const Navbar = () => {
 								<div className="my-2 hidden md:block md:my-0 md:mx-2">
 									<div className="w-full h-px md:w-px md:h-4 bg-gray-100 md:bg-gray-300 dark:bg-neutral-700" />
 								</div>
-								{isUser ? (
+								{user?.uid ? (
 									<DropdownMenu.Root>
 										<DropdownMenu.Trigger asChild>
 											<div>
 												<Avatar.Root className="inline-flex size-[45px] select-none items-center justify-center overflow-hidden rounded-full align-middle">
 													<Avatar.Image
 														className="size-full rounded-[inherit] object-cover"
-														src="https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?&w=128&h=128&dpr=2&q=80"
+														src={user?.photoURL}
 														alt="Colm Tuite"
 													/>
 													<Avatar.Fallback
@@ -63,9 +65,15 @@ const Navbar = () => {
 
 										<DropdownMenu.Portal>
 											<DropdownMenu.Content
-												className="min-w-[16rem] md:min-w-[10rem] z-[100000] rounded-md bg-white p-[5px] shadow-[0px_10px_38px_-10px_rgba(22,_23,_24,_0.35),_0px_10px_20px_-15px_rgba(22,_23,_24,_0.2)] will-change-[opacity,transform] data-[side=bottom]:animate-slideUpAndFade data-[side=left]:animate-slideRightAndFade data-[side=right]:animate-slideLeftAndFade data-[side=top]:animate-slideDownAndFade"
+												className="min-w-[16rem] md:min-w-[16rem] z-[100000] rounded-md border border-gray-200 bg-white p-[5px] shadow-lg will-change-[opacity,transform] data-[side=bottom]:animate-slideUpAndFade data-[side=left]:animate-slideRightAndFade data-[side=right]:animate-slideLeftAndFade data-[side=top]:animate-slideDownAndFade"
 												sideOffset={5}
 												align="end">
+												<DropdownMenu.Item className="">
+													<div className="flex flex-col items-center py-2 border-b border-gray-200">
+														<span className="text-sm font-bold">{user?.displayName}</span>
+														<span className="text-sm">{user?.email}</span>
+													</div>
+												</DropdownMenu.Item>
 												<DropdownMenu.Item className="md:hidden">
 													<NavLink
 														className={`${pathname == routes.home && "bg-gray-100 border-2 border-gray-200"} justify-center p-2 flex items-center text-sm text-gray-800 hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100 dark:bg-neutral-700 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700`}
@@ -102,7 +110,9 @@ const Navbar = () => {
 													</NavLink>
 												</DropdownMenu.Item>
 												<DropdownMenu.Item>
-													<button className="p-2 w-full flex justify-center items-center text-center text-sm text-gray-800 hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100 dark:bg-neutral-700 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700">
+													<button
+														onClick={() => logout()}
+														className="p-2 w-full flex justify-center items-center text-center text-sm text-gray-800 hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100 dark:bg-neutral-700 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700">
 														Logout
 													</button>
 												</DropdownMenu.Item>
