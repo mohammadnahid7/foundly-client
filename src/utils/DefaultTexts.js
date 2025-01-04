@@ -1,5 +1,6 @@
 export const routes = {
 	home: "/",
+	allReports: "/all-reports",
 	lostReports: "/lost-reports",
 	foundReports: "/found-reports",
 	postReport: "/post-reports",

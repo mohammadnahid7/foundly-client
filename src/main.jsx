@@ -2,12 +2,12 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App.jsx";
+import PrivateRoute from "./components/common/PrivateRoute.jsx";
 import AuthContextProvider from "./context/AuthContextProvider.jsx";
 import ReportsViewProvider from "./contexts/ReportsViewProvider.jsx";
 import "./index.css";
 import Dashboard from "./pages/Dashboard.jsx";
 import ErrorPage from "./pages/ErrorPage.jsx";
-import FoundReportsPage from "./pages/FoundReportsPage.jsx";
 import HomePage from "./pages/HomePage.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
 import LostReportsPage from "./pages/LostReportsPage.jsx";
@@ -26,32 +26,52 @@ const allRoutes = createBrowserRouter([
 				element: <HomePage />,
 			},
 			{
-				path: routes.lostReports,
-				element: <LostReportsPage />,
-			},
-			{
-				path: routes.foundReports,
-				element: <FoundReportsPage />,
+				path: routes.allReports,
+				element: (
+					<PrivateRoute>
+						<LostReportsPage />
+					</PrivateRoute>
+				),
 			},
 			{
 				path: routes.login,
-				element: <LoginPage />,
+				element: (
+					<PrivateRoute>
+						<LoginPage />
+					</PrivateRoute>
+				),
 			},
 			{
 				path: routes.register,
-				element: <RegisterPage />,
+				element: (
+					<PrivateRoute>
+						<RegisterPage />
+					</PrivateRoute>
+				),
 			},
 			{
 				path: routes.postReport,
-				element: <PostReportPage />,
+				element: (
+					<PrivateRoute>
+						<PostReportPage />
+					</PrivateRoute>
+				),
 			},
 			{
-				path: "details",
-				element: <ReportDetailsPage />,
+				path: routes.reportDetails,
+				element: (
+					<PrivateRoute>
+						<ReportDetailsPage />
+					</PrivateRoute>
+				),
 			},
 			{
-				path: "dashboard",
-				element: <Dashboard />,
+				path: routes.dashboard,
+				element: (
+					<PrivateRoute>
+						<Dashboard />
+					</PrivateRoute>
+				),
 			},
 		],
 	},
