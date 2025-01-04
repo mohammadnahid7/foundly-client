@@ -1,6 +1,13 @@
-import { PiArrowUpRightBold, PiCaretUpDownBold, PiPencilSimpleBold, PiTrashBold } from "react-icons/pi";
+import * as Dialog from "@radix-ui/react-dialog";
+import { useState } from "react";
+import { PiArrowUpRightBold, PiCaretUpDownBold, PiPencilSimpleBold, PiTrashBold, PiXBold } from "react-icons/pi";
+import UpdateModal from "./UpdateModal";
 
 const TableBody = ({ items }) => {
+	const [updateModalData, setUpdateModalData] = useState({ isOpen: false, itemIdx: null });
+	const handleUpdateModalOpen = (a) => {
+		setUpdateModalData((p) => ({ ...p, isOpen: a }));
+	};
 	return (
 		<>
 			<table className="min-w-full ekhnf hgral dark:divide-neutral-700">
@@ -82,7 +89,7 @@ const TableBody = ({ items }) => {
 							</td>
 							<td className="mfzsv lslrf cqbgq yxmdd">
 								<div className="w-full flex items-center clmee">
-									<img className="vpbnr sc50l v3ki5" src={el.image} alt="Product Image" />
+									<img className="vpbnr sc50l v3ki5" src={el.imageURL} alt="Product Image" />
 									<div className="btpiv">
 										<a className="hac7f ivg4u dt7pj r8d8u ffypy y9jdg sbnko qdamc ctzhm dark:text-neutral-200 dark:hover:text-green-500 dark:focus:text-green-500">
 											{el.title}
@@ -130,8 +137,11 @@ const TableBody = ({ items }) => {
 							</td>
 							<td className="mfzsv lslrf cqbgq yxmdd">
 								<div className="xgqt9 items-center -space-x-px">
+									{/* <Dialog.Trigger asChild>
+										</Dialog.Trigger> */}
 									<button
 										type="button"
+										onClick={() => setUpdateModalData({ isOpen: true, itemIdx: idx })}
 										className="rj4tp xgqt9 q6rsd items-center wwu1y rounded-l-md dpq4d jujtl v869m text-blue-700 k8i8d ze1zv oekgx z50zr sbnko pfxy3 dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-300 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700">
 										<PiPencilSimpleBold className="size-4" />
 									</button>
@@ -152,6 +162,17 @@ const TableBody = ({ items }) => {
 						</tr>
 					))}
 				</tbody>
+				<Dialog.Root open={updateModalData?.isOpen} onOpenChange={handleUpdateModalOpen}>
+					<Dialog.Portal>
+						<Dialog.Overlay className="fixed inset-0 bg-black opacity-70" />
+						<Dialog.Content className="fixed left-1/2 top-1/2 max-h-[85vh] w-[90vw] max-w-[550px] -translate-x-1/2 -translate-y-1/2 rounded-md bg-white shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] focus:outline-none data-[state=open]:animate-contentShow">
+							<Dialog.Title className="hidden" />
+							<Dialog.Description className="hidden" />
+							<Dialog.Close className="hidden" />
+							<UpdateModal item={items[updateModalData?.itemIdx]} setUpdateModalData={setUpdateModalData} />
+						</Dialog.Content>
+					</Dialog.Portal>
+				</Dialog.Root>
 			</table>
 		</>
 	);

@@ -15,3 +15,15 @@ export const defaultTexts = {
 	reportsGridView: "grid",
 	reportsViewModeLSKey: "reportsViewMode",
 };
+
+export const formNames = {
+	imageURL: "imageURL",
+	title: "title",
+	displayName: "displayName",
+	photoURL: "photoURL",
+	type: "type",
+	description: "description",
+	category: "category",
+	location: "location",
+	reportedDate: "reportedDate",
+};

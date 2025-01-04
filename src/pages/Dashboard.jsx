@@ -30,7 +30,7 @@ const items = [
 		title: "Lost: Black Wallet",
 		type: "lost",
 		description: "A black leather wallet with several cards and some cash inside.",
-		image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-C_UAhXq9GfuGO452EEzfbKnh1viQB9EDBQ&s",
+		imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-C_UAhXq9GfuGO452EEzfbKnh1viQB9EDBQ&s",
 		category: "Accessories",
 		location: "Downtown Library",
 		reportedDate: "2024-12-29T10:00:00Z",
@@ -50,7 +50,7 @@ const items = [
 		title: "Found: Set of Keys",
 		type: "found",
 		description: "A set of three keys found near the park bench.",
-		image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-C_UAhXq9GfuGO452EEzfbKnh1viQB9EDBQ&s",
+		imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-C_UAhXq9GfuGO452EEzfbKnh1viQB9EDBQ&s",
 		category: "Keys",
 		location: "Central Park",
 		reportedDate: "2024-12-28T15:00:00Z",
@@ -70,7 +70,7 @@ const items = [
 		title: "Lost: Golden Retriever",
 		type: "lost",
 		description: "A friendly golden retriever wearing a red collar. Answers to 'Buddy.'",
-		image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-C_UAhXq9GfuGO452EEzfbKnh1viQB9EDBQ&s",
+		imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-C_UAhXq9GfuGO452EEzfbKnh1viQB9EDBQ&s",
 		category: "Pets",
 		location: "Elm Street",
 		reportedDate: "2024-12-27T08:00:00Z",
@@ -90,7 +90,7 @@ const items = [
 		title: "Found: Black Backpack",
 		type: "found",
 		description: "A black backpack containing books and a laptop charger.",
-		image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-C_UAhXq9GfuGO452EEzfbKnh1viQB9EDBQ&s",
+		imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-C_UAhXq9GfuGO452EEzfbKnh1viQB9EDBQ&s",
 		category: "Bags",
 		location: "Subway Station A",
 		reportedDate: "2024-12-26T19:00:00Z",
@@ -110,7 +110,7 @@ const items = [
 		title: "Lost: iPhone 13",
 		type: "lost",
 		description: "A blue iPhone 13 with a cracked screen protector. Last seen at the café.",
-		image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-C_UAhXq9GfuGO452EEzfbKnh1viQB9EDBQ&s",
+		imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-C_UAhXq9GfuGO452EEzfbKnh1viQB9EDBQ&s",
 		category: "Electronics",
 		location: "City Café",
 		reportedDate: "2024-12-25T12:00:00Z",
@@ -290,7 +290,7 @@ const Dashboard = () => {
 																		className="x6v2g cj880 mq76t block w-full arrd8 rg6vy xroga hac7f h1ur8 xwans kjmk4 oekgx z50zr dark:bg-neutral-700 dark:border-transparent dark:text-neutral-400 dark:placeholder:text-neutral-400 dark:focus:ring-neutral-600"
 																		placeholder="Search Item"
 																	/>
-																	<div className="absolute rezcy s0ojd flex items-center uqtfj zfk0a d6ed7">
+																	<div className="absolute rezcy s0ojd flex items-center uqtfj d6ed7">
 																		<button
 																			type="button"
 																			className="xgqt9 vpbnr q6rsd items-center n1je8 a3ufl oxyct k7eco sbnko uweqs dark:text-neutral-500 dark:hover:text-blue-500 dark:focus:text-blue-500"
