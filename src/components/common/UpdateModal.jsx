@@ -1,5 +1,5 @@
 import { PiXBold } from "react-icons/pi";
-import { formNames } from "../../utils/DefaultTexts";
+import { formKeyNames } from "../../utils/DefaultTexts";
 
 const UpdateModal = ({ item, setUpdateModalData }) => {
 	const handleFormData = (e) => {
@@ -7,12 +7,12 @@ const UpdateModal = ({ item, setUpdateModalData }) => {
 		// imageURL title description category location reportedDate
 		const form = new FormData(e.target);
 		const reportData = {
-			[formNames.imageURL]: form.get(formNames.imageURL),
-			[formNames.title]: form.get(formNames.title),
-			[formNames.description]: form.get(formNames.description),
-			[formNames.category]: form.get(formNames.category),
-			[formNames.location]: form.get(formNames.location),
-			[formNames.reportedDate]: form.get(formNames.reportedDate),
+			[formKeyNames.imageURL]: form.get(formKeyNames.imageURL),
+			[formKeyNames.title]: form.get(formKeyNames.title),
+			[formKeyNames.description]: form.get(formKeyNames.description),
+			[formKeyNames.category]: form.get(formKeyNames.category),
+			[formKeyNames.location]: form.get(formKeyNames.location),
+			[formKeyNames.reportedDate]: form.get(formKeyNames.reportedDate),
 		};
 		console.log(reportData);
 	};
@@ -39,109 +39,113 @@ const UpdateModal = ({ item, setUpdateModalData }) => {
 					<div className="fo082 ia4l2">
 						<div className="cwrq4 ktjle bgnon dkjki lfptd">
 							<div className="u2bzw">
-								<label htmlFor={formNames.imageURL} className="zt4us dxkem hac7f oxyct dark:text-neutral-500">
+								<label htmlFor={formKeyNames.imageURL} className="zt4us dxkem hac7f oxyct dark:text-neutral-500">
 									ImageURL
 								</label>
 							</div>
 							<div className="pzbob">
 								<input
-									id={formNames.imageURL}
-									name={formNames.imageURL}
+									id={formKeyNames.imageURL}
+									name={formKeyNames.imageURL}
 									type="text"
 									className="fuiju tm5do block w-full a11ya xroga hac7f mryrt yjgee pnxyx oekgx z50zr dark:bg-transparent dark:border-neutral-700 dark:text-neutral-300 dark:placeholder:text-white/60 dark:focus:ring-neutral-600"
 									placeholder="James Davidson"
-									defaultValue={item[formNames.imageURL]}
+									defaultValue={item[formKeyNames.imageURL]}
 								/>
 							</div>
 						</div>
 
 						<div className="cwrq4 ktjle bgnon dkjki lfptd">
 							<div className="u2bzw">
-								<label htmlFor={formNames.title} className="zt4us dxkem hac7f oxyct dark:text-neutral-500">
+								<label htmlFor={formKeyNames.title} className="zt4us dxkem hac7f oxyct dark:text-neutral-500">
 									Title
 								</label>
 							</div>
 
 							<div className="pzbob">
 								<input
-									id={formNames.title}
-									name={formNames.title}
+									id={formKeyNames.title}
+									name={formKeyNames.title}
 									type="text"
 									className="fuiju tm5do block w-full a11ya xroga hac7f mryrt yjgee pnxyx oekgx z50zr dark:bg-transparent dark:border-neutral-700 dark:text-neutral-300 dark:placeholder:text-white/60 dark:focus:ring-neutral-600"
 									placeholder="James Davidson"
-									defaultValue={item[formNames.title]}
+									defaultValue={item[formKeyNames.title]}
 								/>
 							</div>
 						</div>
 						<div className="cwrq4 ktjle bgnon dkjki lfptd">
 							<div className="u2bzw">
-								<label htmlFor={formNames.description} className="zt4us dxkem hac7f oxyct dark:text-neutral-500">
+								<label
+									htmlFor={formKeyNames.description}
+									className="zt4us dxkem hac7f oxyct dark:text-neutral-500">
 									Description
 								</label>
 							</div>
 
 							<div className="pzbob">
 								<textarea
-									id={formNames.description}
-									name={formNames.description}
+									id={formKeyNames.description}
+									name={formKeyNames.description}
 									type="text"
 									className="fuiju tm5do block w-full a11ya xroga hac7f mryrt yjgee pnxyx oekgx z50zr dark:bg-transparent dark:border-neutral-700 dark:text-neutral-300 dark:placeholder:text-white/60 dark:focus:ring-neutral-600"
 									placeholder="James Davidson"
-									defaultValue={item[formNames.description]}
+									defaultValue={item[formKeyNames.description]}
 								/>
 							</div>
 						</div>
 						<div className="cwrq4 ktjle bgnon dkjki lfptd">
 							<div className="u2bzw">
-								<label htmlFor={formNames.category} className="zt4us dxkem hac7f oxyct dark:text-neutral-500">
+								<label htmlFor={formKeyNames.category} className="zt4us dxkem hac7f oxyct dark:text-neutral-500">
 									Category
 								</label>
 							</div>
 
 							<div className="pzbob">
 								<input
-									id={formNames.category}
-									name={formNames.category}
+									id={formKeyNames.category}
+									name={formKeyNames.category}
 									type="text"
 									className="fuiju tm5do block w-full a11ya xroga hac7f mryrt yjgee pnxyx oekgx z50zr dark:bg-transparent dark:border-neutral-700 dark:text-neutral-300 dark:placeholder:text-white/60 dark:focus:ring-neutral-600"
 									placeholder="James Davidson"
-									defaultValue={item[formNames.category]}
+									defaultValue={item[formKeyNames.category]}
 								/>
 							</div>
 						</div>
 						<div className="cwrq4 ktjle bgnon dkjki lfptd">
 							<div className="u2bzw">
-								<label htmlFor={formNames.location} className="zt4us dxkem hac7f oxyct dark:text-neutral-500">
+								<label htmlFor={formKeyNames.location} className="zt4us dxkem hac7f oxyct dark:text-neutral-500">
 									Location
 								</label>
 							</div>
 
 							<div className="pzbob">
 								<input
-									id={formNames.location}
-									name={formNames.location}
+									id={formKeyNames.location}
+									name={formKeyNames.location}
 									type="text"
 									className="fuiju tm5do block w-full a11ya xroga hac7f mryrt yjgee pnxyx oekgx z50zr dark:bg-transparent dark:border-neutral-700 dark:text-neutral-300 dark:placeholder:text-white/60 dark:focus:ring-neutral-600"
 									placeholder="James Davidson"
-									defaultValue={item[formNames.location]}
+									defaultValue={item[formKeyNames.location]}
 								/>
 							</div>
 						</div>
 						<div className="cwrq4 ktjle bgnon dkjki lfptd">
 							<div className="u2bzw">
-								<label htmlFor={formNames.reportedDate} className="zt4us dxkem hac7f oxyct dark:text-neutral-500">
+								<label
+									htmlFor={formKeyNames.reportedDate}
+									className="zt4us dxkem hac7f oxyct dark:text-neutral-500">
 									Reported Date
 								</label>
 							</div>
 
 							<div className="pzbob">
 								<input
-									id={formNames.reportedDate}
-									name={formNames.reportedDate}
+									id={formKeyNames.reportedDate}
+									name={formKeyNames.reportedDate}
 									type="text"
 									className="fuiju tm5do block w-full a11ya xroga hac7f mryrt yjgee pnxyx oekgx z50zr dark:bg-transparent dark:border-neutral-700 dark:text-neutral-300 dark:placeholder:text-white/60 dark:focus:ring-neutral-600"
 									placeholder="James Davidson"
-									defaultValue={item[formNames.reportedDate]}
+									defaultValue={item[formKeyNames.reportedDate]}
 								/>
 							</div>
 						</div>

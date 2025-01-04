@@ -16,7 +16,7 @@ export const defaultTexts = {
 	reportsViewModeLSKey: "reportsViewMode",
 };
 
-export const formNames = {
+export const formKeyNames = {
 	imageURL: "imageURL",
 	title: "title",
 	displayName: "displayName",
@@ -26,4 +26,9 @@ export const formNames = {
 	category: "category",
 	location: "location",
 	reportedDate: "reportedDate",
+	authormeta: "authormeta",
+	uid: "uid",
+	email: "email",
+	recoverymeta: "recoverymeta",
+	recoveryStatus: "recoveryStatus",
 };

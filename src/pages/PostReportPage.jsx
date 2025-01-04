@@ -2,50 +2,40 @@ import * as Switch from "@radix-ui/react-switch";
 import { useContext, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { useNavigate } from "react-router-dom";
 import AuthContext from "../context/contexts";
+import useAxios from "../hooks/useAxios";
+import { formKeyNames, routes } from "../utils/DefaultTexts";
 const PostReportPage = () => {
 	const [startDate, setStartDate] = useState(new Date());
+	const [isLoading, setIsLoading] = useState(false);
 	const { user } = useContext(AuthContext);
+	const axios = useAxios();
+	const navigate = useNavigate();
 
 	const handleFormSubmit = (e) => {
 		e.preventDefault();
-		// {
-		// 	author_meta [],
-		// 	title,
-		// 	description,
-		// 	image,
-		// 	category,
-		// 	location,
-		// 	status,
-		// 	recoveryId,
-		// 	created_at,
-		// 	updated_at
-		// }
-
+		setIsLoading(true);
 		const form = new FormData(e.target);
-		console.log(startDate.getTime());
-
 		const newReport = {
-			author_meta: {
-				uid: user?.uid,
-				displayName: user?.displayName,
-				photoURL: user?.photoURL,
+			[formKeyNames.authormeta]: {
+				[formKeyNames.uid]: user?.uid,
+				[formKeyNames.displayName]: user?.displayName,
+				[formKeyNames.photoURL]: user?.photoURL,
+				[formKeyNames.email]: user?.email,
 			},
-			title: form.get("title"),
-			type: form.get("type") == null ? "lost" : "found",
-			description: form.get("description"),
-			image: form.get("imageURL"),
-			category: form.get("category"),
-			location: form.get("location"),
-			reportedDate: startDate.getTime(),
-			// recoveryId: "", // server, _id of recovery object
-			// status: "", // server
-			// metadata: {
-			// 	created_at: "", // server
-			// 	updated_at: "", // server
-			// },
+			[formKeyNames.title]: form.get(formKeyNames.title),
+			[formKeyNames.type]: form.get(formKeyNames.type) == null ? "lost" : "found",
+			[formKeyNames.description]: form.get(formKeyNames.description),
+			[formKeyNames.imageURL]: form.get(formKeyNames.imageURL),
+			[formKeyNames.category]: form.get(formKeyNames.category),
+			[formKeyNames.location]: form.get(formKeyNames.location),
+			[formKeyNames.reportedDate]: startDate.getTime(),
 		};
-		console.log(newReport);
+		axios.post("/reports", newReport).then((res) => {
+			setIsLoading(false);
+			navigate(routes.dashboard);
+		});
 	};
 	return (
 		<>
@@ -60,8 +50,18 @@ const PostReportPage = () => {
 							you’ve lost!
 						</p>
 					</div>
-					<div className="w-full max-w-lg mx-auto mt-8">
-						<div className="bg-white shadow-sm rounded-xl dark:bg-neutral-800 dark:border-neutral-700">
+					<div className="w-full max-w-2xl mx-auto mt-8">
+						<div className="relative bg-white shadow-sm rounded-xl dark:bg-neutral-800 dark:border-neutral-700">
+							{/* Loading screen */}
+							<div
+								className={`${isLoading || "hidden "} absolute bg-gray-100 opacity-70 w-full h-full flex items-center justify-center z-10`}>
+								<span
+									className="animate-spin inline-block size-16 border-[3px] border-current border-t-transparent text-blue-600 rounded-full dark:text-blue-500"
+									role="status"
+									aria-label="loading">
+									<span className="sr-only">Loading...</span>
+								</span>
+							</div>
 							<form onSubmit={handleFormSubmit}>
 								<div className="py-2 sm:py-4 px-2">
 									<div className="w-48 flex items-center justify-between mx-auto mb-8">
@@ -78,15 +78,15 @@ const PostReportPage = () => {
 										<div className="grid sm:grid-cols-12 gap-y-1 sm:gap-y-0 sm:gap-x-5">
 											<div className="sm:col-span-3">
 												<label
-													htmlFor="imageURL"
+													htmlFor={formKeyNames.imageURL}
 													className="sm:mt-2 inline-block text-sm text-gray-500 dark:text-neutral-500">
 													Image URL
 												</label>
 											</div>
 											<div className="sm:col-span-9">
 												<input
-													id="imageURL"
-													name="imageURL"
+													id={formKeyNames.imageURL}
+													name={formKeyNames.imageURL}
 													type="url"
 													className="py-2 px-3 block w-full border border-gray-200 rounded-lg text-sm placeholder:text-gray-400 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-transparent dark:border-neutral-700 dark:text-neutral-300 dark:placeholder:text-white/60 dark:focus:ring-neutral-600"
 													placeholder="Image URL"
@@ -98,7 +98,7 @@ const PostReportPage = () => {
 										<div className="grid sm:grid-cols-12 gap-y-1 sm:gap-y-0 sm:gap-x-5">
 											<div className="sm:col-span-3">
 												<label
-													htmlFor="title"
+													htmlFor={formKeyNames.title}
 													className="sm:mt-2 inline-block text-sm text-gray-500 dark:text-neutral-500">
 													Title
 												</label>
@@ -106,8 +106,8 @@ const PostReportPage = () => {
 
 											<div className="sm:col-span-9">
 												<input
-													id="title"
-													name="title"
+													id={formKeyNames.title}
+													name={formKeyNames.title}
 													type="text"
 													className="py-2 px-3 block w-full border border-gray-200 rounded-lg text-sm placeholder:text-gray-400 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-transparent dark:border-neutral-700 dark:text-neutral-300 dark:placeholder:text-white/60 dark:focus:ring-neutral-600"
 													placeholder="Found an I-Phone 16 Pro"
@@ -118,7 +118,7 @@ const PostReportPage = () => {
 										<div className="grid sm:grid-cols-12 gap-y-1 sm:gap-y-0 sm:gap-x-5">
 											<div className="sm:col-span-3">
 												<label
-													htmlFor="description"
+													htmlFor={formKeyNames.description}
 													className="sm:mt-2 inline-block text-sm text-gray-500 dark:text-neutral-500">
 													Description
 												</label>
@@ -126,8 +126,8 @@ const PostReportPage = () => {
 
 											<div className="sm:col-span-9">
 												<textarea
-													id="description"
-													name="description"
+													id={formKeyNames.description}
+													name={formKeyNames.description}
 													className="py-3 px-4 block w-full border border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
 													rows="3"
 													placeholder="This is a textarea placeholder"></textarea>
@@ -136,7 +136,7 @@ const PostReportPage = () => {
 										<div className="grid sm:grid-cols-12 gap-y-1 sm:gap-y-0 sm:gap-x-5">
 											<div className="sm:col-span-3">
 												<label
-													htmlFor="category"
+													htmlFor={formKeyNames.category}
 													className="sm:mt-2 inline-block text-sm text-gray-500 dark:text-neutral-500">
 													Category
 												</label>
@@ -144,13 +144,13 @@ const PostReportPage = () => {
 
 											<div className="sm:col-span-9">
 												<select
-													id="category"
-													name="category"
+													id={formKeyNames.category}
+													name={formKeyNames.category}
 													className="py-3 px-4 pe-9 block w-full bg-white border border-gray-200 rounded-lg text-sm disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
 													<option defaultChecked>Select Category</option>
-													<option>1</option>
-													<option>2</option>
-													<option>3</option>
+													<option>Bag</option>
+													<option>Mobile</option>
+													<option>Accessories</option>
 												</select>
 											</div>
 										</div>
@@ -158,7 +158,7 @@ const PostReportPage = () => {
 										<div className="grid sm:grid-cols-12 gap-y-1 sm:gap-y-0 sm:gap-x-5">
 											<div className="sm:col-span-3">
 												<label
-													htmlFor="location"
+													htmlFor={formKeyNames.location}
 													className="sm:mt-2 inline-block text-sm text-gray-500 dark:text-neutral-500">
 													Location
 												</label>
@@ -166,8 +166,8 @@ const PostReportPage = () => {
 
 											<div className="sm:col-span-9">
 												<input
-													id="location"
-													name="location"
+													id={formKeyNames.location}
+													name={formKeyNames.location}
 													type="text"
 													className="py-2 px-3 block w-full border border-gray-200 rounded-lg text-sm placeholder:text-gray-400 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-transparent dark:border-neutral-700 dark:text-neutral-300 dark:placeholder:text-white/60 dark:focus:ring-neutral-600"
 													placeholder="Location"
@@ -178,7 +178,7 @@ const PostReportPage = () => {
 										<div className="grid sm:grid-cols-12 gap-y-1 sm:gap-y-0 sm:gap-x-5">
 											<div className="sm:col-span-3">
 												<label
-													htmlFor="date"
+													htmlFor={formKeyNames.reportedDate}
 													className="sm:mt-2 inline-block text-sm text-gray-500 dark:text-neutral-500">
 													Date
 												</label>
@@ -186,8 +186,8 @@ const PostReportPage = () => {
 
 											<div className="sm:col-span-9">
 												<DatePicker
-													id="date"
-													name="date"
+													id={formKeyNames.reportedDate}
+													name={formKeyNames.reportedDate}
 													className="py-2 px-3 block w-full border border-gray-200 rounded-lg text-sm placeholder:text-gray-400 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-transparent dark:border-neutral-700 dark:text-neutral-300 dark:placeholder:text-white/60 dark:focus:ring-neutral-600"
 													selected={startDate}
 													onChange={(date) => setStartDate(date)}
@@ -211,7 +211,7 @@ const PostReportPage = () => {
 														name="email"
 														type="email"
 														className="py-2 px-3 block w-full border border-gray-200 rounded-lg text-sm placeholder:text-gray-400 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-transparent dark:border-neutral-700 dark:text-neutral-300 dark:placeholder:text-white/60 dark:focus:ring-neutral-600"
-														defaultValue="johndoe@gmail.com"
+														defaultValue={user?.email}
 														disabled
 													/>
 												</div>
@@ -234,7 +234,7 @@ const PostReportPage = () => {
 														type="text"
 														disabled
 														className="py-2 px-3 block w-full border border-gray-200 rounded-lg text-sm placeholder:text-gray-400 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-transparent dark:border-neutral-700 dark:text-neutral-300 dark:placeholder:text-white/60 dark:focus:ring-neutral-600"
-														defaultValue="John Doe"
+														defaultValue={user?.displayName}
 													/>
 												</div>
 											</div>
@@ -244,11 +244,6 @@ const PostReportPage = () => {
 
 								<div className="p-6 pt-0 flex justify-end gap-x-2">
 									<div className="w-full flex justify-end items-center gap-x-2">
-										<button
-											type="button"
-											className="py-2 px-3 inline-flex justify-center items-center gxh7t bg-white border border-gray-200 text-gray-800 text-sm font-medium rounded-lg shadow-sm align-middle hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-300 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700">
-											Cancel
-										</button>
 										<button
 											type="submit"
 											className="py-2 px-3 inline-flex justify-center items-center gap-x-2 gxh7t bg-blue-600 border border-blue-600 text-white text-sm font-medium rounded-lg shadow-sm align-middle hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:ring-1 focus:ring-blue-300 dark:focus:ring-blue-500">
