@@ -5,6 +5,7 @@ import App from "./App.jsx";
 import AuthContextProvider from "./context/AuthContextProvider.jsx";
 import ReportsViewProvider from "./contexts/ReportsViewProvider.jsx";
 import "./index.css";
+import Dashboard from "./pages/Dashboard.jsx";
 import ErrorPage from "./pages/ErrorPage.jsx";
 import FoundReportsPage from "./pages/FoundReportsPage.jsx";
 import HomePage from "./pages/HomePage.jsx";
@@ -47,6 +48,10 @@ const allRoutes = createBrowserRouter([
 			{
 				path: "details",
 				element: <ReportDetailsPage />,
+			},
+			{
+				path: "dashboard",
+				element: <Dashboard />,
 			},
 		],
 	},

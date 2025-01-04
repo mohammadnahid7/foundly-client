@@ -1,14 +1,51 @@
 import * as Switch from "@radix-ui/react-switch";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import AuthContext from "../context/contexts";
 const PostReportPage = () => {
 	const [startDate, setStartDate] = useState(new Date());
+	const { user } = useContext(AuthContext);
+
 	const handleFormSubmit = (e) => {
 		e.preventDefault();
-		console.log("Here");
+		// {
+		// 	author_meta [],
+		// 	title,
+		// 	description,
+		// 	image,
+		// 	category,
+		// 	location,
+		// 	status,
+		// 	recoveryId,
+		// 	created_at,
+		// 	updated_at
+		// }
+
 		const form = new FormData(e.target);
-		console.log(...form.values());
+		console.log(startDate.getTime());
+
+		const newReport = {
+			author_meta: {
+				uid: user?.uid,
+				displayName: user?.displayName,
+				photoURL: user?.photoURL,
+			},
+			title: form.get("title"),
+			type: form.get("type") == null ? "lost" : "found",
+			description: form.get("description"),
+			image: form.get("imageURL"),
+			category: form.get("category"),
+			location: form.get("location"),
+			reportedDate: startDate.getTime(),
+			// recoveryId: "", // server, _id of recovery object
+			// status: "", // server
+			// metadata: {
+			// 	created_at: "", // server
+			// 	updated_at: "", // server
+			// },
+		};
+		console.log(newReport);
 	};
 	return (
 		<>
@@ -30,6 +67,7 @@ const PostReportPage = () => {
 									<div className="w-48 flex items-center justify-between mx-auto mb-8">
 										Lost
 										<Switch.Root
+											name="type"
 											className="relative h-12 w-20 cursor-default rounded-md border border-gray-300 bg-gray-100 outline-none data-[state=checked]:bg-emerald-100"
 											style={{ WebkitTapHighlightColor: "rgba(0, 0, 0, 0)" }}>
 											<Switch.Thumb className="block size-10 translate-x-0.5 rounded-md bg-white transition-transform duration-100 will-change-transform data-[state=checked]:translate-x-9" />
